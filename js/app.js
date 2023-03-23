@@ -41,7 +41,7 @@ const getEstados = async (event) => {
     container.replaceChildren(info_estado)
     
 
-    getCidades(event)
+    await getCidades(event)
 
     return container
     
@@ -50,15 +50,18 @@ const getEstados = async (event) => {
 const getCidades = async (event) => {
     const estado = event.target.id.replace('BR-', '')
 
+    const container = document.getElementById('info-container')
+
     const cidadesJson = await getCidadesEstado(estado)
 
-    
 
     const info_cidades = document.createElement('span')
     info_cidades.classList.add('info_cidades')
 
     const tituloCidades = document.createElement('h3')
     tituloCidades.textContent = 'Cidades: '
+
+    info_cidades.append(tituloCidades)
 
     cidadesJson.cidades.forEach(function(cidade){
         const nomeCidade = document.createElement('p')
@@ -67,8 +70,8 @@ const getCidades = async (event) => {
         info_cidades.append(nomeCidade)
     })
 
-    info_cidades.append(tituloCidades)
-    container.replaceChildren(info_cidades)
+    
+    container.appendChild(info_cidades)
 
     return container
 }
