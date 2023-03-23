@@ -1,6 +1,7 @@
 # Mapa dos estados do Brasil
 
 ![](./img/captura.png)
+[Clique aqui para acessar o site](https://yasmingcv.github.io/projeto-mapa/)
 
 ---
 
